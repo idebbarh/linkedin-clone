@@ -1,0 +1,28 @@
+.feeds-option{
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+    cursor: pointer;
+    flex: 1;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+.feeds-option:hover{
+    background-color: var(--hover-color);
+}
+.feeds-option--title{
+    font-size: 14px;
+    color: var(--gray);
+    text-transform: capitalize;
+}

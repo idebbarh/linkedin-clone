@@ -1,0 +1,66 @@
+.post{
+    background-color: var(--white-color);
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    border: 1px solid var(--hover-color);
+    padding: 8px 15px 3px 15px;
+}
+.post--head{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.post--owner-info{
+    flex: 1;
+}
+.post--owner-name{
+    font-weight: 500;
+}
+.post--owner-description{
+    color: var(--gray);
+    font-size: 14px;
+}
+.post--follow-btn{
+    color: var(--main-blue);
+    background:none;
+    border:none;
+    cursor: pointer;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    padding: 6px;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+}
+.post--follow-btn:hover{
+    background-color: var(--transparent-blue) ;
+}
+.post--content{
+    padding: 15px 0;
+}
+.post--content > p{
+    color: var(--black);
+    font-weight: 400;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+.post--actions{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.post--actions > *{
+    color: var(--gray);
+}

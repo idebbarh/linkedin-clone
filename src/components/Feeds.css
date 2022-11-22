@@ -1,0 +1,54 @@
+.feeds{
+    flex:0.6;
+}
+.feeds--create-post{
+    background-color: var(--white-color);
+    border:  1px solid var(--hover-color);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -ms-border-radius: 8px;
+    -o-border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+.feeds--top{
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    margin: 15px 0;
+    gap: 10px;
+}
+.feeds--post-input-container{
+    width: 100%;
+    border: 1px solid var(--gray);
+    padding: 12px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    color: var(--gray);
+}
+.feeds--post-input{
+    background: none;
+    border: none;
+    outline: none;
+    height: 100%;
+    width: 100%;
+}
+.feeds--post-input::placeholder{
+    font-weight: 600;
+    color: var(--gray);
+}
+.feeds--bottom{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 2px 2px 2px;
+}
+.feeds--postes >*{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
