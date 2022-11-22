@@ -10,9 +10,12 @@ import React,{ useEffect, useState } from 'react';
 import { collection, addDoc,onSnapshot,serverTimestamp,orderBy,query} from "firebase/firestore"; 
 import { db } from '../firebase/firebase';
 import FlipMove from 'react-flip-move';
+import {useSelector} from 'react-redux';
+import {selectUser} from '../features/user/userSlice'
 function Feeds() {
     const [posts,setPosts] = useState([]);
     const [postInput,setPostInput] = useState('');
+    const user = useSelector(selectUser);
     useEffect(() => {
         const q = query(collection(db,'postes'),orderBy("timestamp",'desc'));
         onSnapshot(q,querySnapshot=>{
@@ -25,29 +28,27 @@ function Feeds() {
         event.preventDefault();
         if(postInput.length > 0){
             try{
-                const docRef = await addDoc(collection(db,'postes'),{
-                    name:'leo messi',
-                    description:'argentine football player',
+                await addDoc(collection(db,'postes'),{
+                    name:user?.name,
+                    description:user?.email,
                     content:postInput,
-                    photoUrl:'',
+                    photoUrl:user?.photoURL,
                     timestamp:serverTimestamp(),
                 })
-                console.log("Document written with ID: ", docRef.id);
             }catch(e){
-                console.log("Error adding document: ",e)
+                alert("Error adding document: ",e)
             }
         }
         setPostInput('')
     }
-
     const postsElem = posts.map((post)=>{ 
-        return <Post key={post.id} name={post.name} description={post.description} content={post.content} />
+        return <Post key={post.id} name={post.name} description={post.description} content={post.content} image={post.photoUrl}/>
     })
   return (
     <div className='feeds'>
         <div className="feeds--create-post">
             <div className="feeds--top">
-                <Avatar src='https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg' sx={{ width: 45, height: 45 }}>I</Avatar>
+                <Avatar src={user?.photoURL} sx={{ width: 45, height: 45 }}>{user?.email[0]}</Avatar>
                 <div className="feeds--post-input-container">
                     <form onSubmit={(event)=>addNewPost(event)}>
                         <input type="text" className='feeds--post-input' placeholder='Start a post' value={postInput} onChange={(event=>setPostInput(event.target.value))}/>

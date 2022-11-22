@@ -8,11 +8,11 @@ import './Post.css'
 import { Avatar } from '@mui/material';
 import React,{ forwardRef } from 'react';
 
-const Post = forwardRef(({name,description,content},ref) =>{
+const Post = forwardRef(({name,description,content,image},ref) =>{
   return (
     <div className='post' ref={ref}>
         <div className="post--head">
-            <Avatar src='https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg' sx={{ width: 45, height: 45 }}>I</Avatar>
+            <Avatar src={image} sx={{ width: 45, height: 45 }}>{description[0]}</Avatar>
             <div className="post--owner-info">
                 <h3 className="post--owner-name">{name}</h3>
                 <p className='post--owner-description'>{description}</p>

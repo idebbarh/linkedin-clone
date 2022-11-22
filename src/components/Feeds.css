@@ -1,5 +1,10 @@
 .feeds{
-    flex:0.6;
+    flex:0.5;
+}
+@media (max-width:768px) {
+    .feeds{
+        flex: 0.6;
+    }
 }
 .feeds--create-post{
     background-color: var(--white-color);

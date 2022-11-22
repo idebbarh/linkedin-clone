@@ -2,7 +2,10 @@ import { Avatar } from '@mui/material'
 import React from 'react'
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import './LeftBar.css'
+import {useSelector} from 'react-redux'
+import {selectUser} from '../features/user/userSlice'
 function LeftBar() {
+    const user = useSelector(selectUser);
   return (
         <div className="left-bar">
             <div className="left-bar--profile-info">
@@ -10,9 +13,9 @@ function LeftBar() {
                     <div className="left-bar--profile-background-image">
                         <img src="https://media-exp1.licdn.com/dms/image/C5616AQHfbns9Is_l7Q/profile-displaybackgroundimage-shrink_350_1400/0/1663068989945?e=1674691200&v=beta&t=-UA1ZzHRFpr4bZ3Jn59Ud6TN3m0p-lMHBr_vfLIbon4" alt="profile background color" />
                     </div>
-                    <Avatar src='https://upload.wikimedia.org/wikipedia/commons/c/c1/Lionel_Messi_20180626.jpg' sx={{ width: 64, height: 64 }} className='left-bar--profile-image'>I</Avatar>
-                    <h3 className="left-bar--full-name">leo messi</h3>
-                    <p className='left-bar--description'>argentine football player</p>
+                    <Avatar src={user?.photoURL} sx={{ width: 64, height: 64 }} className='left-bar--profile-image'>{user?.email[0]}</Avatar>
+                    <h3 className="left-bar--full-name">{user?.name}</h3>
+                    <p className='left-bar--description'>{user?.email}</p>
                 </div>
                 <div className="left-bar--bottom">
                     <p className='left-bar--stats'>Who's viewed your profile <span>36</span></p>

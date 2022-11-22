@@ -10,6 +10,12 @@
     padding: 5px 0;
     z-index: 999;
 }
+@media (max-width:1024px) {
+    .header{
+        flex-direction: column;
+        row-gap: 20px;
+    }
+}
 .header--left,
 .header--right{
     display: flex;

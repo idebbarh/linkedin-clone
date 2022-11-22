@@ -8,9 +8,10 @@ import TextsmsIcon from '@mui/icons-material/Textsms';
 import React from 'react'
 import HeaderOption from './HeaderOption';
 import NotificationsIcon from '@mui/icons-material/Notifications';
-
-
+import {useSelector} from 'react-redux'
+import {selectUser} from '../features/user/userSlice'
 function Header() {
+    const user = useSelector(selectUser);
   return (
     <header className='header'>
         <div className="header--left">
@@ -30,7 +31,7 @@ function Header() {
             <HeaderOption title='jobs' Icon={WorkIcon}/>
             <HeaderOption title='messaging' Icon={TextsmsIcon}/>
             <HeaderOption title='notifications' Icon={NotificationsIcon}/>
-            <HeaderOption title='Me' profileImageSrc='https://cdn.futura-sciences.com/buildsv6/images/largeoriginal/d/9/a/d9a1058910_50163142_elon-musk1.jpg'/>
+            <HeaderOption title='Me' profileImageSrc={user?.photoURL} description={user?.email}/>
         </div>
     </header>
   )

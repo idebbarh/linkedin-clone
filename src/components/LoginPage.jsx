@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import './LoginPage.css'
 import {auth} from '../firebase/firebase'
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged} from 'firebase/auth'
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword,updateProfile} from 'firebase/auth'
+import {useDispatch} from 'react-redux';
+import {login} from '../features/user/userSlice'
 function LoginPage() {
     const [formInfo,setFormInfo] = useState({
         name:'',
@@ -10,14 +12,43 @@ function LoginPage() {
         password:'',
         imageUrl:''
     })
+    const dispatch = useDispatch()
     const signInHandler = (event)=>{
         event.preventDefault()
-        console.log('sign in')
+        if(formInfo.email.length === 0){
+            return alert('please entre a valid email')
+        }else if(formInfo.password.length === 0){
+            return alert('please entre a valid password')
+        }
+        signInWithEmailAndPassword(auth,formInfo.email,formInfo.password)
+            // .then((userCredential)=>{
+            //     const {displayName,email,photoURL} = userCredential.user;
+            //     dispatch(login({name:displayName,email:email,photoURL:photoURL}))
+            // })
+            .catch(e=>alert(e.message))
     }
 
     const joinHandler = (event)=>{
         event.preventDefault();
-        console.log('join')
+        if(formInfo.name.length === 0 ){
+            return alert('please entre a full name')
+        }else if(formInfo.email.length === 0){
+            return alert('please entre a valid email')
+        }else if(formInfo.password.length === 0){
+            return alert('please entre a valid password')
+        }
+        createUserWithEmailAndPassword(auth,formInfo.email,formInfo.password)
+            .then((userCredential)=>{
+                updateProfile(userCredential.user,{
+                    displayName: formInfo.name,
+                    photoURL: formInfo.imageUrl
+                })
+                .then(()=>{
+                    const {displayName,email,photoURL} = userCredential.user
+                    dispatch(login({name:displayName,email:email,photoURL:photoURL}))
+                })
+            })
+            .catch(e=>alert(e.message))
     }
     const inputChangeHandler = (event)=>{
         const {name,value} = event.target;

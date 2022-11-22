@@ -1,8 +1,0 @@
-    --black: #000;
-    --gray:rgba(0,0,0,0.6);
-    --hover-color:rgba(0,0,0,0.08);
-    --main-blue:#0a66c2;
-    --main-background-color:#f3f2ef;
-    --white-color:#fff;
-    --second-gray:#eef3f8;
-    --transparent-blue:rgba(112,181,249,0.2);
