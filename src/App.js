@@ -3,17 +3,19 @@ import './App.css';
 import Header from './components/Header';
 import LeftBar from './components/LeftBar';
 import Feeds from './components/Feeds';
+import LoginPage from './components/LoginPage';
 function App() {
   return (
     <div className="app">
-        <div className="app--all-contents">
+        <LoginPage/>
+        {/* <div className="app--all-contents">
           <Header/>
           <main className="app--main">
             <LeftBar/>
             <Feeds/>
-            {/* Widgets */}
+            Widgets
           </main>
-        </div>
+        </div> */}
     </div>
   );
 }

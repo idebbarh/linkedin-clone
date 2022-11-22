@@ -6,7 +6,7 @@ import SendIcon from '@mui/icons-material/Send';
 import AddIcon from '@mui/icons-material/Add';
 import './Post.css'
 import { Avatar } from '@mui/material';
-import { forwardRef } from 'react';
+import React,{ forwardRef } from 'react';
 
 const Post = forwardRef(({name,description,content},ref) =>{
   return (

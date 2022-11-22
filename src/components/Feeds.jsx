@@ -6,7 +6,7 @@ import VideoCameraBackIcon from '@mui/icons-material/VideoCameraBack';
 import DvrIcon from '@mui/icons-material/Dvr';
 import ArticleIcon from '@mui/icons-material/Article';
 import Post from './Post';
-import { useEffect, useState } from 'react';
+import React,{ useEffect, useState } from 'react';
 import { collection, addDoc,onSnapshot,serverTimestamp,orderBy,query} from "firebase/firestore"; 
 import { db } from '../firebase/firebase';
 import FlipMove from 'react-flip-move';
